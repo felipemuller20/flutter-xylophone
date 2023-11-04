@@ -16,6 +16,20 @@ class XylophoneApp extends StatelessWidget {
     player.play(AssetSource('note$soundNumber.wav'));
   }
 
+  Expanded buildKey(Color color, int soundNumber) {
+    return Expanded(
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: color,
+        ),
+        onPressed: () {
+          playSound(soundNumber);
+        },
+        child: const Text(''),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,85 +43,13 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Expanded(
-                // Ocupa todo o espaço no mainaxis (collumn)
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red[900],
-                    // minimumSize: const Size(double.infinity, 110),
-                  ),
-                  onPressed: () {
-                    playSound(1);
-                  },
-                  child: const Text(''),
-                ),
-              ),
-              Expanded(
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange[900],
-                  ),
-                  onPressed: () {
-                    playSound(2);
-                  },
-                  child: const Text(''),
-                ),
-              ),
-              Expanded(
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.yellow[900],
-                  ),
-                  onPressed: () {
-                    playSound(3);
-                  },
-                  child: const Text(''),
-                ),
-              ),
-              Expanded(
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green[600],
-                  ),
-                  onPressed: () {
-                    playSound(4);
-                  },
-                  child: const Text(''),
-                ),
-              ),
-              Expanded(
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.teal[900],
-                  ),
-                  onPressed: () {
-                    playSound(5);
-                  },
-                  child: const Text(''),
-                ),
-              ),
-              Expanded(
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue[900],
-                  ),
-                  onPressed: () {
-                    playSound(6);
-                  },
-                  child: const Text(''),
-                ),
-              ),
-              Expanded(
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.purple[900],
-                  ),
-                  onPressed: () {
-                    playSound(7);
-                  },
-                  child: const Text(''),
-                ),
-              ),
+              buildKey(Colors.red, 1),
+              buildKey(Colors.orange, 2),
+              buildKey(Colors.yellow, 3),
+              buildKey(Colors.green, 4),
+              buildKey(Colors.teal, 5),
+              buildKey(Colors.blue, 6),
+              buildKey(Colors.purple, 7),
             ],
           ),
         ),
